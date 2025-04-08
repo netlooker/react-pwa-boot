@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+# React PWA Boot: Vite + React 19 + TS + Tailwind 4
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project serves as a starter template for building Progressive Web Applications (PWAs) using a modern tech stack. It's bootstrapped with Vite and pre-configured with React 19, TypeScript, Tailwind CSS 4, and `vite-plugin-pwa`.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Build Tool:** [Vite](https://vitejs.dev/)
+* **Framework:** [React 19](https://react.dev/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS 4](https://tailwindcss.com/) (`@tailwindcss/vite`)
+  * Dark Mode: Enabled via `class` strategy (`darkMode: 'class'`)
+* **PWA:** [vite-plugin-pwa](https://vite-pwa-org.netlify.app/)
+  * Manifest Generation
+  * Service Worker (Workbox) with 'prompt' update strategy
+  * PWA Asset Generation (`@vite-pwa/assets-generator`)
+  * Includes a `PWABadge` component for handling update notifications.
+* **Linting:** [ESLint](https://eslint.org/) with TypeScript support (`typescript-eslint`), React Hooks plugin.
+* **Formatting:** [Prettier](https://prettier.io/)
+* **Icons:** [Lucide React](https://lucide.dev/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* ⚡️ Fast development and builds powered by Vite.
+* ⚛️ Latest React 19 features.
+* 🔒 Type safety with TypeScript.
+* 🎨 Utility-first styling with Tailwind CSS 4 (including class-based dark mode).
+* 📱 Progressive Web App ready:
+  * Service Worker for offline capabilities (via Workbox).
+  * Web App Manifest configured.
+  * Automatic PWA asset generation from `public/favicon.svg`.
+  * User prompt for app updates when new content is available.
+* ✨ Code quality checks using ESLint and Prettier.
+* ✅ Strict TypeScript configuration enabled.
+* 🔍 Pre-configured with Lucide Icons for easy icon integration.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+* Node.js (LTS version recommended)
+* npm, yarn, or pnpm
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+    ```bash
+    git clone <your-repo-url>
+    cd netlooker-react-pwa-boot # Or your project directory name
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+### Development
+
+Run the development server:
+
+```bash
+npm run dev
